@@ -1,9 +1,11 @@
 import { Avatar, ListItemAvatar, ListItemButton, ListItemText, styled, Typography } from "@mui/material";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 
 const PlayListItemContainer = styled(ListItemButton)(({ theme, selected }) => ({
 	padding: "8px",
 	alignItems: "center",
 	borderRadius: "8px",
+	gap: "4px",
 	backgroundColor: selected ? theme.palette.action.active : "",
 	"&:hover": {
 		backgroundColor: theme.palette.action.hover,
@@ -30,7 +32,7 @@ interface PlaylistItemProps {
 const PlaylistItem = ({ image, name, artistName, id, handleClick, selected }: PlaylistItemProps) => {
 	return (
 		<PlayListItemContainer onClick={() => handleClick(id)} selected={selected || false}>
-			<ListItemAvatar>{image ? <PlaylistAvatar src={image} alt={name} /> : "No image"}</ListItemAvatar>
+			<ListItemAvatar style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>{image ? <PlaylistAvatar src={image} alt={name} /> : <LibraryMusicIcon />}</ListItemAvatar>
 			<ListItemText
 				primary={<PlaylistName>{name}</PlaylistName>}
 				secondary={

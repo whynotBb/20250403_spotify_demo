@@ -31,17 +31,18 @@ const Library = () => {
 		}
 	}, [inView]);
 
-	console.log("playlist", data);
+	console.log("playlists", data);
 	const { data: user } = useGetCurrentUserProfile();
+	if (!user) {
+		return <EmptyPlaylist />;
+	}
 	if (isLoading) {
 		return <Loading />;
 	}
 	if (error) {
 		return <ErrorMessage errorMessage={error.message} />;
 	}
-	if (!user) {
-		return <EmptyPlaylist />;
-	}
+
 	return (
 		<div>
 			{!data || data?.pages[0].total === 0 ? (
