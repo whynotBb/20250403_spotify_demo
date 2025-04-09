@@ -5,6 +5,7 @@ import Loading from "../../common/components/Loading";
 import ErrorMessage from "../../common/components/ErrorMessage";
 import { Box, styled, Typography } from "@mui/material";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import useGetPlaylistItems from "../../hooks/useGetPlaylistItems";
 
 const PlaylistHeader = styled(Box)({
 	display: "flex",
@@ -45,6 +46,9 @@ const PlaylistDetailPage = () => {
 	const { data: playlist, isLoading, error } = useGetPlaylist({ playlist_id: id ?? "" });
 
 	console.log(id, "playlist", playlist);
+
+	const { data: playlistItems } = useGetPlaylistItems({ playlist_id: id ?? "", limit: 10, offset: 0 });
+	console.log("playlistItem", playlistItems);
 	if (isLoading || !playlist) {
 		return <Loading />;
 	}
