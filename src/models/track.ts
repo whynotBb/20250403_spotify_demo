@@ -10,7 +10,7 @@ export interface Track {
 		href: string;
 		id: string;
 		images: Image[];
-		name: string;
+		name?: string;
 		release_date: string;
 		release_date_precision: string;
 		restrictions: Restriction;

@@ -61,3 +61,11 @@ export interface PlaylistTrack {
 }
 
 export type GetPlaylistItemsResponse = ApiResponse<PlaylistTrack>;
+
+export interface createPlaylistRequest {
+	name: string;
+	playlistPublic?: boolean;
+	collaborative?: boolean;
+	description?: string;
+}
+export interface createPlaylistResponse {}
