@@ -1,4 +1,4 @@
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { GetPlaylistItemsRequest } from "../models/playlist";
 import { getPlaylistItems } from "../apis/playlistApi";
 

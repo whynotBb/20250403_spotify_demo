@@ -12,6 +12,7 @@ import { useInView } from "react-intersection-observer";
 import { BorderBottom, BorderColor, Height } from "@mui/icons-material";
 import useGetCurrentUserProfile from "../../hooks/useGetCurrentUserProfile";
 import LoginButton from "../../common/components/LoginButton";
+import EmptyPlaylistWithSearch from "./component/EmptyPlaylistWithSearch";
 
 const PlaylistHeader = styled(Box)({
 	display: "flex",
@@ -124,7 +125,9 @@ const PlaylistDetailPage = () => {
 				)}
 			</PlaylistHeader>
 			{playlist?.tracks.total === 0 ? (
-				<Typography>search</Typography>
+				<Typography>
+					<EmptyPlaylistWithSearch />
+				</Typography>
 			) : (
 				<TableBx>
 					<Table>

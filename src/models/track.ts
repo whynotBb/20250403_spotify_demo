@@ -66,12 +66,61 @@ export interface Episode {
 	type: "episode";
 	url: string;
 	restriction: Restriction;
-	show: {
-		available_markets: string[];
-		copyrights: {
-			text: string;
-			type: string;
-		};
-		description: string;
-	};
+	show: Show;
+}
+
+export type SimplifiedEpisode = Omit<Episode, "show">;
+
+export interface Show {
+	available_markets: string[];
+	copyrights: {
+		text: string;
+		type: string;
+	}[];
+	description: string;
+	html_description: string;
+	explicit: boolean;
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	images: Image[];
+	is_externally_hosted: boolean;
+	languages: string[];
+	media_type: string;
+	name: string;
+	publisher: string;
+	type: "show";
+	uri: string;
+	total_episodes: number;
+}
+
+export interface SimplifiedAudioBook {
+	authors: {
+		name: string;
+	}[];
+	available_markets: string[];
+	copyrights: {
+		text: string;
+		type: string;
+	}[];
+	description: string;
+	html_description: string;
+	edition: "Unabridged";
+	explicit: boolean;
+	external_urls: ExternalUrls;
+	href: string;
+	id: string;
+	images: Image[];
+	languages: [string];
+	media_type: string;
+	name: string;
+	narrators: [
+		{
+			name: string;
+		}
+	];
+	publisher: string;
+	type: "audiobook";
+	uri: string;
+	total_chapters: number;
 }
