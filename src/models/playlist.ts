@@ -69,3 +69,13 @@ export interface createPlaylistRequest {
 	description?: string;
 }
 export interface createPlaylistResponse {}
+
+export interface addPlaylistItemRequest {
+	playlist_id: string;
+	uris: string[];
+	position: number;
+}
+
+export interface addPlaylistItemResponse {
+	snapshot_id: string;
+}
