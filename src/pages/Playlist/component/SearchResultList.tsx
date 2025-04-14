@@ -1,19 +1,23 @@
 import React from "react";
 import { Track } from "../../../models/track";
-import { Typography } from "@mui/material";
+import { Button, styled, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@mui/material";
 
 interface SearchResultListProps {
-	list: Track[];
+  list: Track[];
 }
 
 const SearchResultList = ({ list }: SearchResultListProps) => {
-	return (
-		<div>
-			{list.map((track) => (
-				<Typography variant="h2">{track.name}</Typography>
-			))}
-		</div>
-	);
+  const addToPlaylist = () => {};
+  return list.map((track, idx) => (
+    <TableRow key={idx}>
+      <TableCell>{track.name}</TableCell>
+      <TableCell>{track.artists[0].name}</TableCell>
+      <TableCell>❤ {track.popularity}</TableCell>
+      <TableCell>
+        <Button onClick={addToPlaylist}>ADD</Button>
+      </TableCell>
+    </TableRow>
+  ));
 };
 
 export default SearchResultList;

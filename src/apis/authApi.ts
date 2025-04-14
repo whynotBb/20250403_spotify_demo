@@ -37,6 +37,8 @@ export const exchangeToken = async (code: string, codeVerifier: string): Promise
     if (!CLIENT_ID || !REDIRECT_URI) {
       throw new Error("missing required parameters");
     }
+    console.log("!!!", REDIRECT_URI);
+
     const body = new URLSearchParams({
       client_id: CLIENT_ID,
       grant_type: "authorization_code",
